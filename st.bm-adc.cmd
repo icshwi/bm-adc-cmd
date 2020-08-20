@@ -1,4 +1,4 @@
-require dmsc_detector_interface,master
+require dmsc_detector_interface,1.3.0
 require stream,2.8.8
 require autosave,5.10.0
 
@@ -25,7 +25,7 @@ dbLoadRecords("$(MRF_HW_DB)","EVR=$(EVR),SYS=$(SYS),D=$(DEVICE),FEVT=88.0525,PIN
 ############# -------- Detector Readout Interface ----------------- ##################
 epicsEnvSet("DETINT_CMD_TOP","/epics/iocs/cmds/bm-adc") 
 #epicsEnvSet("DETINT_DB_TOP", "$(E3_MODULES)/e3-detectorinterface/m-epics-detectorinterface/db")
-epicsEnvSet("STREAM_PROTOCOL_PATH","/epics/base-7.0.3/require/3.1.2/siteApps/dmsc_detector_interface/master/db")
+epicsEnvSet("STREAM_PROTOCOL_PATH","$(dmsc_detector_interface_DIR)/db")
 
 
 system "/bin/bash $(DETINT_CMD_TOP)/find_usb_bus_id.bash"
